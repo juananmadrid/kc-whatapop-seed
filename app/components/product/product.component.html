@@ -8,6 +8,8 @@
     | componente padre.                                                |
     |~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 
+
+
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
     | Purple Path                                                      |
     |~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
@@ -16,7 +18,11 @@
     |   - 2 dígitos mínimo y máximo (parte decimal)                    |
     |~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 
+    <!-- Green Path  -->
+
+
     <button
+        (click)="notificarSeleccion(data)"
         class="button expanded"
         [class.success]="data.state === 'selling'"
         [class.secondary]="data.state === 'sold'">

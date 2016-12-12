@@ -41,4 +41,10 @@ export class ProductsCollectionComponent implements OnDestroy, OnInit {
     | el Router de la app. La ruta a navegar es '/products', pasando   |
     | como parámetro el identificador del producto.                    |
     |~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+    /* Green Path */
+     verDetallesProducto(product: Product): void {
+         // window.open(`http://http://kronox.es`)
+         window.open(`http://localhost:3000/products/${product.id}`, "_blank")
+    }
 }

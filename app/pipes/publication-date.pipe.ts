@@ -1,5 +1,27 @@
 import * as moment from "moment";
 import "moment/locale/es";
+import {Pipe, PipeTransform} from "@angular/core";
+import {timestamp} from "rxjs/operator/timestamp";
+
+
+/* Blue Path */
+
+@Pipe({
+    name: "TimeAnuncio"
+})
+
+export class FromNowPipe implements PipeTransform {
+
+    transform(publishedDate: number): string {
+
+        let timefrom: string;
+        timefrom = moment(publishedDate).fromNow();
+
+        return timefrom;
+
+    }
+
+}
 
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
 | Blue Path                                                        |

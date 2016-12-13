@@ -65,7 +65,7 @@ export class ProductService {
         let params: URLSearchParams = new URLSearchParams();
 
 
-        if filter !== null {
+        if (filter !== null) {
             params.set("category.id", filter.category);
             params.set("q", filter.text);
         }

@@ -6,6 +6,7 @@ import "rxjs/add/operator/map";
 import { Product } from "../models/product";
 import { ProductFilter } from "../models/product-filter";
 import { BackendUri } from "../app.settings";
+import {filter} from "rxjs/operator/filter";
 
 @Injectable()
 export class ProductService {
@@ -13,6 +14,7 @@ export class ProductService {
     constructor(
         @Inject(BackendUri) private _backendUri: string,
         private _http: Http) { }
+
 
     getProducts(filter: ProductFilter = undefined): Observable<Product[]> {
 
@@ -60,10 +62,22 @@ export class ProductService {
         |~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
 
+        let params: URLSearchParams = new URLSearchParams();
+
+
+        if filter !== null {
+            params.set("category.id", filter.category);
+            params.set("q", filter.text);
+        }
+
+        let options: RequestOptions = new RequestOptions();
+        options.search = params;
+
         return this._http
-                   .get(`${this._backendUri}/products?_sort=publishedDate&_order=DESC`)
+                   .get(`${this._backendUri}/products?_sort=publishedDate&_order=DESC`, options)
                    .map((data: Response): Product[] => Product.fromJsonToList(data.json()));
     }
+
 
     getProduct(productId: number): Observable<Product> {
         return this._http

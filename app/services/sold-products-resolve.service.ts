@@ -26,16 +26,15 @@ export class SoldProductsResolve {
     |    ya vendido; quizá te ayude con este punto.                    |
     |~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
-/*
     constructor(private _productService: ProductService) { }
 
-    // private _productFilter: ProductFilter = {}
-    private _productFilter:
+    private _productFilterSell: ProductFilter = {
+        state: "sold"
+    };
+    // private _productFilter: string = selling;
 
-    resolve(route: ActivatedRouteSnapshot): Observable<Product> {
-        return this._productService.getProducts(this._productFilter);
+    resolve(route: ActivatedRouteSnapshot): Observable<Product[]> {
+        return this._productService.getProducts(this._productFilterSell);
     }
-
-*/
 
 }

@@ -64,11 +64,12 @@ export class ProductService {
 
         let params: URLSearchParams = new URLSearchParams();
 
-
         if (filter !== null) {
             params.set("category.id", filter.category);
             params.set("q", filter.text);
+            params.set("state", filter.state);
         }
+debugger;
 
         let options: RequestOptions = new RequestOptions();
         options.search = params;
@@ -77,7 +78,6 @@ export class ProductService {
                    .get(`${this._backendUri}/products?_sort=publishedDate&_order=DESC`, options)
                    .map((data: Response): Product[] => Product.fromJsonToList(data.json()));
     }
-
 
     getProduct(productId: number): Observable<Product> {
         return this._http

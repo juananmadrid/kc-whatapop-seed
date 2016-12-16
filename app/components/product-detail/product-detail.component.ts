@@ -61,4 +61,14 @@ export class ProductDetailComponent implements OnDestroy, OnInit {
     goBack(): void {
         window.history.back();
     }
+
+    like: number = 0;
+
+    notificarLike(): void {
+        // He intentado sin éxito introducir un array para contabilizar las pulsaciones
+        // en botón Like, pero me cuesta bastante al no haber programado nunca antes.
+        // Lo seguiré intentando a ver si lo consigo.
+    }
+
+
 }

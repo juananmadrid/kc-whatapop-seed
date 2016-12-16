@@ -33,6 +33,12 @@
         |~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 
         <button
+            (click)="notificarLike(_product.id)"
+            class="icono">
+            <i class="fa fa-thumbs-up fa-1x" aria-hidden="true">{{ like }}</i>
+        </button>
+
+        <button
             *ngIf="_product.state === 'selling'"
             (click)="showPurchaseWarning()"
             class="button large expanded">Comprar por {{ _product.price | currency :'EUR' :false :'1.2-2' }} €</button>

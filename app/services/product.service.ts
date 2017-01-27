@@ -63,19 +63,22 @@ export class ProductService {
 
 
         let params: URLSearchParams = new URLSearchParams();
+        params.set("_sort", "publishedDate");
+        params.set("_order", "DESC");
 
         if (filter !== null) {
             params.set("category.id", filter.category);
             params.set("q", filter.text);
             params.set("state", filter.state);
         }
-debugger;
+
 
         let options: RequestOptions = new RequestOptions();
         options.search = params;
 
         return this._http
-                   .get(`${this._backendUri}/products?_sort=publishedDate&_order=DESC`, options)
+                 // .get(`${this._backendUri}/products?_sort=publishedDate&_order=DESC`, options)
+                   .get(`${this._backendUri}/products`, options)
                    .map((data: Response): Product[] => Product.fromJsonToList(data.json()));
     }
 

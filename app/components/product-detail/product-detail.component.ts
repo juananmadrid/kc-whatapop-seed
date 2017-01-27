@@ -62,9 +62,22 @@ export class ProductDetailComponent implements OnDestroy, OnInit {
         window.history.back();
     }
 
+
+
+/*
+
+    const LikePush = [
+    {id: 1, likes: 0},
+    {id: 2, likes: 0},
+    {id: 3, likes: 0},
+    {id: 4, likes: 0},
+    {id: 5, likes: 0}];
+*/
+
     like: number = 0;
 
-    notificarLike(): void {
+    notificarLike(productId:number): void {
+
         // He intentado sin éxito introducir un array para contabilizar las pulsaciones
         // en botón Like, pero me cuesta bastante al no haber programado nunca antes.
         // Lo seguiré intentando a ver si lo consigo.
